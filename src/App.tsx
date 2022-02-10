@@ -15,7 +15,7 @@ function App(): JSX.Element {
               <p className="text-muted my-0 small">
                 A Rubik&apos;s cube simulation in Three.js.
                 <br />
-                <a href="https://svandriel.github.io/cubed/" target="_blank" rel="noreferrer">
+                <a href="https://github.com/svandriel/cubed" target="_blank" rel="noreferrer">
                   Github source
                 </a>
               </p>
