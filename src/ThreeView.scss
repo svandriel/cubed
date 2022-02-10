@@ -1,0 +1,24 @@
+.ThreeView {
+  position: relative;
+  // height: 600px;
+  > canvas {
+    position: absolute;
+  }
+
+  .stats {
+    position: absolute !important;
+    top: initial !important;
+    bottom: 0;
+  }
+  .exit-fullscreen-button {
+    display: none;
+  }
+  &:fullscreen {
+    .fullscreen-button {
+      display: none;
+    }
+    .exit-fullscreen-button {
+      display: block;
+    }
+  }
+}

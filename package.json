@@ -1,0 +1,87 @@
+{
+  "name": "cubed",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": "^10||^12||^13||^14||^15||^16||^17"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.17",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/d3-ease": "^3.0.0",
+    "@types/jest": "^27.4.0",
+    "@types/node": "^16.11.21",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-virtualized-auto-sizer": "^1.0.1",
+    "@types/three": "^0.136.1",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "bootstrap": "^5.1.3",
+    "cross-env": "^7.0.3",
+    "d3-ease": "^3.0.1",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.0.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^4.3.8",
+    "lil-gui": "^0.16.0",
+    "lint-staged": "^12.3.1",
+    "node-sass": "^7.0.1",
+    "prettier": "^2.5.1",
+    "react": "^17.0.2",
+    "react-bootstrap": "^2.1.1",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "react-use": "^17.3.2",
+    "react-virtualized-auto-sizer": "^1.0.6",
+    "three": "^0.136.0",
+    "ts-jest": "^27.1.3",
+    "typescript": "^4.5.5"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint '**/*.{ts,tsx}' && prettier '**/*.{json,yaml,scss}' --check",
+    "fix": "eslint '**/*.{ts,tsx}' --fix && prettier '**/*.{json,yaml,scss}' --write",
+    "verify": "npm run lint && cross-env CI=1 npm run test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run verify"
+    }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "**/*.{json,yaml,scss}": [
+      "prettier --write"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

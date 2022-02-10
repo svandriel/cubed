@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cube works 1`] = `
+Array [
+  Object {
+    "parts": Array [
+      "(-1, -1, -1): CORNER: ORANGE,YELLOW,GREEN",
+      "(-1, -1, 0): EDGE: ORANGE,YELLOW",
+      "(-1, -1, 1): CORNER: ORANGE,YELLOW,BLUE",
+      "(0, -1, -1): EDGE: YELLOW,GREEN",
+      "(0, -1, 0): MIDDLE: YELLOW",
+      "(0, -1, 1): EDGE: YELLOW,BLUE",
+      "(1, -1, -1): CORNER: RED,YELLOW,GREEN",
+      "(1, -1, 0): EDGE: RED,YELLOW",
+      "(1, -1, 1): CORNER: RED,YELLOW,BLUE",
+    ],
+    "y": -1,
+  },
+  Object {
+    "parts": Array [
+      "(-1, 0, -1): EDGE: ORANGE,GREEN",
+      "(-1, 0, 0): MIDDLE: ORANGE",
+      "(-1, 0, 1): EDGE: ORANGE,BLUE",
+      "(0, 0, -1): MIDDLE: GREEN",
+      "(0, 0, 0): EDGE: ",
+      "(0, 0, 1): MIDDLE: BLUE",
+      "(1, 0, -1): EDGE: RED,GREEN",
+      "(1, 0, 0): MIDDLE: RED",
+      "(1, 0, 1): EDGE: RED,BLUE",
+    ],
+    "y": 0,
+  },
+  Object {
+    "parts": Array [
+      "(-1, 1, -1): CORNER: ORANGE,WHITE,GREEN",
+      "(-1, 1, 0): EDGE: ORANGE,WHITE",
+      "(-1, 1, 1): CORNER: ORANGE,WHITE,BLUE",
+      "(0, 1, -1): EDGE: WHITE,GREEN",
+      "(0, 1, 0): MIDDLE: WHITE",
+      "(0, 1, 1): EDGE: WHITE,BLUE",
+      "(1, 1, -1): CORNER: RED,WHITE,GREEN",
+      "(1, 1, 0): EDGE: RED,WHITE",
+      "(1, 1, 1): CORNER: RED,WHITE,BLUE",
+    ],
+    "y": 1,
+  },
+]
+`;
