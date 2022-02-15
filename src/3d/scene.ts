@@ -91,8 +91,8 @@ export class CubeScene {
 
     const { materials, textures } = makeCubeMaterials(textureLoader);
 
-    const cubemap = loadCubeMapTexture(cubeTextureLoader, this.scene, materials);
-    const hdriEnvTexture = loadHdriEnvTexture(rgbeLoader, this.scene, materials);
+    const cubemap = loadCubeMapTexture(cubeTextureLoader, this.scene, Object.values(materials));
+    const hdriEnvTexture = loadHdriEnvTexture(rgbeLoader, this.scene, Object.values(materials));
 
     this.cubePartNodes = createCubePartNodes(this.cube, materials);
     this.cubeGroup.add(...this.cubePartNodes);

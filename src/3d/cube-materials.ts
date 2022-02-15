@@ -1,11 +1,14 @@
 import {
   LinearMipMapLinearFilter,
   Material,
+  Matrix3,
   MeshPhysicalMaterial,
   MirroredRepeatWrapping,
   RepeatWrapping,
   Texture,
   TextureLoader,
+  Vector2,
+  Wrapping,
 } from 'three';
 
 import { CubeColor, cubeColors } from '../domain/cube-part-color';
@@ -22,7 +25,15 @@ export function makeCubeMaterials(textureLoader: TextureLoader): {
   const specularMap = createSpecularMap(textureLoader);
   const colorMap = createColorMap(textureLoader);
   const materials = Object.values(CubeColor).reduce((acc, color) => {
-    acc[color] = createMaterial(color, colorMap, bumpMap, displacementMap, normalmap, specularMap);
+    const material = createMaterial(
+      color,
+      colorMap,
+      bumpMap,
+      displacementMap,
+      normalmap,
+      specularMap
+    );
+    acc[color] = material;
     return acc;
   }, {} as Record<CubeColor, Material>);
   return { materials, textures: compact([bumpMap, normalmap, specularMap, displacementMap]) };
@@ -59,6 +70,9 @@ function createBumpMap(textureLoader: TextureLoader): Texture | null {
       : null;
   if (bumpMap) {
     bumpMap.minFilter = LinearMipMapLinearFilter;
+    bumpMap.magFilter = LinearMipMapLinearFilter;
+    bumpMap.wrapS = MirroredRepeatWrapping;
+    bumpMap.wrapT = MirroredRepeatWrapping;
   }
   return bumpMap;
 }
