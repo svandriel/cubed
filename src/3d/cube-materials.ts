@@ -1,14 +1,12 @@
 import {
+  LinearFilter,
   LinearMipMapLinearFilter,
   Material,
-  Matrix3,
   MeshPhysicalMaterial,
   MirroredRepeatWrapping,
   RepeatWrapping,
   Texture,
   TextureLoader,
-  Vector2,
-  Wrapping,
 } from 'three';
 
 import { CubeColor, cubeColors } from '../domain/cube-part-color';
@@ -70,7 +68,7 @@ function createBumpMap(textureLoader: TextureLoader): Texture | null {
       : null;
   if (bumpMap) {
     bumpMap.minFilter = LinearMipMapLinearFilter;
-    bumpMap.magFilter = LinearMipMapLinearFilter;
+    bumpMap.magFilter = LinearFilter;
     bumpMap.wrapS = MirroredRepeatWrapping;
     bumpMap.wrapT = MirroredRepeatWrapping;
   }

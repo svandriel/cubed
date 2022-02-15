@@ -2,6 +2,7 @@ import * as ease from 'd3-ease';
 import {
   AmbientLight,
   AxesHelper,
+  BufferGeometry,
   Color,
   CubeTextureLoader,
   Event,
@@ -132,6 +133,14 @@ export class CubeScene {
     this.lights.forEach(light => {
       light.dispose();
       this.scene.remove(light);
+    });
+    this.scene.traverse(obj => {
+      if (obj instanceof Mesh) {
+        if (obj.geometry instanceof BufferGeometry) {
+          console.log('Disposing of', obj.geometry);
+          obj.geometry.dispose();
+        }
+      }
     });
     this.textures.forEach(texture => texture.dispose());
     this.materials.forEach(material => material.dispose());
