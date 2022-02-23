@@ -98,5 +98,6 @@ function createMaterial(
     clearcoat: SceneConfig.cubeClearcoat,
     clearcoatMap: specularMap,
     clearcoatRoughness: SceneConfig.cubeClearcoatRoughness,
+    transparent: true,
   });
 }

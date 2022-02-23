@@ -59,7 +59,7 @@ export class CubeScene {
 
   private readonly textures: Texture[];
 
-  private readonly materials: Material[];
+  public readonly materials: Material[];
 
   private readonly cubePartNodes: Object3D[];
 

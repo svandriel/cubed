@@ -3,6 +3,7 @@ import {
   ACESFilmicToneMapping,
   CineonToneMapping,
   LinearToneMapping,
+  MeshPhysicalMaterial,
   NoToneMapping,
   ReinhardToneMapping,
 } from 'three';
@@ -11,6 +12,8 @@ import { AdaptiveToneMappingPass } from 'three/examples/jsm/postprocessing/Adapt
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass';
 
 import { CubeScene } from './scene';
+
+type MaterialChanger = (mat: MeshPhysicalMaterial, val: number) => unknown;
 
 export function createGui(
   scene: CubeScene,
@@ -23,6 +26,35 @@ export function createGui(
   const gui = new GUI();
   gui.close();
   gui.domElement.style.position = 'absolute';
+  const materialFolder = gui.addFolder('Material');
+
+  const addMaterialSlider = <
+    T extends keyof MeshPhysicalMaterial,
+    K extends MeshPhysicalMaterial[T]
+  >(
+    prop: K,
+    min: number,
+    max: number
+  ): void => {
+    materialFolder
+      .add(scene.materials[0] as MeshPhysicalMaterial, prop, min, max)
+      .onChange((val: number) => {
+        scene.materials.forEach(mat => {
+          // eslint-disable-next-line no-param-reassign
+          mat[prop] = val;
+        });
+      });
+  };
+  addMaterialSlider('bumpScale', 0, 0.05);
+  addMaterialSlider('clearcoat', 0, 1);
+  addMaterialSlider('clearcoatRoughness', 0, 1);
+  addMaterialSlider('metalness', 0, 1);
+  addMaterialSlider('roughness', 0, 1);
+  addMaterialSlider('envMapIntensity', 0, 1);
+  addMaterialSlider('transmission', 0, 1);
+  addMaterialSlider('thickness', 0, 1);
+  addMaterialSlider('reflectivity', 0, 1);
+
   const mainFolder = gui.addFolder('Main');
   mainFolder.add(controls, 'autoRotate').name('Auto rotate').listen();
   mainFolder.add(scene, 'enableAutoScrambler').name('Auto scramble');
